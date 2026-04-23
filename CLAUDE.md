@@ -41,6 +41,20 @@ version: 1
 - `sync-to-children` → `.claude/skills/sync-to-children/SKILL.md`
 - `sync-to-core` → `.claude/skills/sync-to-core/SKILL.md`
 
+## 스킬·룰 추가 규칙 (구조 준수)
+
+### 스킬 추가
+- **원본(단일 진실 원천)**: `.claude/skills/<skill-name>/SKILL.md`
+- **에이전트 호환 wrapper**: `.agents/skills/<skill-name>/SKILL.md`
+- wrapper의 `name`/`description`은 원본과 **동일하게 유지**한다
+- wrapper 본문은 **최소 내용**만 두고, 항상 원본 `.claude/skills/.../SKILL.md`를 읽고 따르도록 연결한다 (중복 작성 금지)
+
+### 룰 추가
+- 프로젝트의 거버넌스/작업 규칙은 항상 `CLAUDE.md`를 **단일 진실 원천**으로 유지한다
+- Cursor 룰을 쓰는 경우:
+  - `.cursor/rules/project-context.mdc`만 `alwaysApply: true`로 유지한다
+  - 나머지는 `alwaysApply: false`로 별도 파일에 작성한다
+
 ## 백로그
 - 활성 백로그: `docs/00_backlog/backlog.md` — **진행** / **대기** 섹션
 - 완료 아카이브: `docs/00_backlog/backlog_done.md`
@@ -60,16 +74,3 @@ version: 1
 ## 개발 완료 후·커밋 전 문서화
 - 기능·수정 작업이 끝나면 커밋 전에 관련 문서를 갱신한다
 - 커밋 규칙: `.claude/skills/lets-commit/SKILL.md` 준수
-
-## 배치 문서 업데이트
-- 트리거 충족 시 문서 1개 이상 업데이트 또는 미업데이트 사유 보고
-- 응답 끝에 아래 블록 포함:
-
-```text
-[배치 문서 업데이트]
-- trigger: <value>
-- updated_files:
-  - <path or 없음>
-- notes:
-  - <1-3 lines>
-```

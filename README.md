@@ -2,7 +2,38 @@
 
 > The **Family Core** template — the parent of your AI family system.
 
-For installation instructions, visit the **[agent-family](https://github.com/shotgun1945/agent-family)** repository.
+For full installation instructions, visit the **[agent-family](https://github.com/shotgun1945/agent-family)** repository.
+
+If you already cloned this repo and opened it in your AI agent, paste the prompt below to complete setup:
+
+```
+Set up my Family Core.
+
+Ask me the following values one by one (starting with language), then replace all placeholders. Use today's date for {SETUP_DATE} (YYYY-MM-DD).
+
+Required:
+- Language (e.g. English / 한국어 / 日本語) — ask this first, then use it for all output
+- Family name (this becomes {username} in all files)
+- AI name
+- Backlog prefix (2–3 uppercase letters, e.g. MY)
+
+Files to update after collecting values:
+- README.md → {family-name}
+- CLAUDE.md → {SETUP_DATE}, {username}, {LANGUAGE}, {AI_NAME}, {BACKLOG_PREFIX}
+- data/persona/assistant_persona.md → {SETUP_DATE}, {AI_NAME}, {username}
+- data/persona/profile.md → {SETUP_DATE}
+- data/persona/preferences.md → {SETUP_DATE}
+- data/persona/personality.md → {SETUP_DATE}
+- data/persona/update_rules.md → {SETUP_DATE}
+- data/children_manifest.md → {SETUP_DATE}, {username}
+- data/children_registry.md → {SETUP_DATE}, {username}
+- docs/README.md → {SETUP_DATE}
+- docs/00_backlog/backlog.md → {SETUP_DATE}, {BACKLOG_PREFIX}
+- docs/00_backlog/backlog_done.md → {SETUP_DATE}
+Note: {username} and {family-name} = family name entered above.
+
+After setup, optionally ask if I want to set up my persona (profile, preferences, personality).
+```
 
 ---
 
