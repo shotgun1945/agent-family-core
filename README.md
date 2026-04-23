@@ -2,6 +2,10 @@
 
 > The **Family Core** template — the parent of your AI family system.
 
+> [!NOTE]
+> **Do not fork or edit this repo directly.**
+> Copy the onboarding prompt below and paste it to your AI agent — it will set everything up for you.
+
 [![Use this template](https://img.shields.io/badge/Use%20this%20template-2ea44f?style=for-the-badge)](../../generate)
 
 ---
