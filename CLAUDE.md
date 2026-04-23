@@ -6,7 +6,7 @@ version: 1
 # {username}
 
 ## 프로젝트 목적
-{PROJECT_PURPOSE}
+유저의 일상·업무·지식을 AI와 함께 관리하는 개인 AI 패밀리 시스템의 부모 프로젝트.
 
 ## 언어 설정
 - 기본 언어: **{LANGUAGE}**
