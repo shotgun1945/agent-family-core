@@ -3,58 +3,49 @@
 > The **Family Core** template — the parent of your AI family system.
 
 > [!NOTE]
-> **Do not fork or edit this repo directly.**
-> Copy the onboarding prompt below and paste it to your AI agent — it will set everything up for you.
-
-[![Use this template](https://img.shields.io/badge/Use%20this%20template-2ea44f?style=for-the-badge)](../../generate)
+> **Do not clone or fork this repo.**
+> Open it in your AI agent and paste the onboarding prompt below — the agent sets everything up for you.
 
 ---
 
 ## What is this?
 
-The **parent** project that sits at the center of your AI family system — defined entirely in Markdown.
+The **parent** project at the center of your AI family system — defined entirely in Markdown, no code required.
 
-- **No code** — all configuration is `.md` files
-- **No database** — files are the agent's memory
-- **Parent of all children** — manages skills, rules, and templates that flow down to child projects
+- **No code in the parent** — all configuration is `.md` files
+- **Files are memory** — Markdown files are the agent's persistent state
+- **Skills are behavior** — one `SKILL.md` = one reusable workflow
+- **Parent manages, children execute** — skills and rules flow down from parent to children
 
 ---
 
-## Quick Start
+## How to use
 
-### 1. Create your repo
+### 1. Open this repo in your AI agent
 
-Click **"Use this template"** → **"Create a new repository"**.  
-Name it `{username}` (e.g. `alice`, `darlin`).
-
-### 2. Clone locally
-
-```bash
-git clone https://github.com/{your-github-id}/{username}.git
-cd {username}
-```
-
-### 3. Open Claude Code
-
-```bash
-claude
-```
-
-### 4. Paste the onboarding prompt
-
-Copy the prompt below and paste it into Claude Code as-is.  
-The agent will ask you each value one by one and set everything up.
+In Claude Code, Cursor, or any AI agent that reads `CLAUDE.md`:
 
 ```
-Set up my agent-family-core.
+Open this repo as the working directory.
+```
 
-Ask me each of the following values one by one, then replace all placeholders and fill in the persona files interactively.
+### 2. Paste the onboarding prompt
 
-Required:
+Copy the prompt below and paste it into your AI agent as-is.  
+The agent will ask you each value one by one, set up the core, then offer available plugins to install.
+
+```
+Set up my agent-family system.
+
+Ask me each of the following values one by one, then set up the Family Core.
+After core setup, fetch the plugin registry from:
+https://raw.githubusercontent.com/shotgun1945/agent-family/main/plugins/registry.md
+List available plugins and ask which ones I want to install.
+
+Required (core):
 - username
 - AI name
 - Backlog prefix (2–3 uppercase letters, e.g. MY)
-- Project purpose (one-line description)
 - Language (default language for all responses and documents, e.g. English / 한국어 / 日本語)
 ```
 
@@ -71,13 +62,13 @@ Family Core is the **parent**. Child projects live alongside it and inherit its 
 │   ├── data/persona/              # Who the user is, who the AI is
 │   └── .claude/skills/            # Skills managed here, propagated to children
 └── {username}_children/
-    ├── financial-planner/         # Child project
-    └── telegram-bot/              # Child project (distributable → plugin)
+    ├── financial-planner/         # Child project (personal)
+    └── telegram-bot/              # Plugin (installed from registry)
 ```
 
-**Child vs Plugin:**  
-A child is any project in your family system.  
-A **plugin** is a child designed to be distributed publicly — packaged so others can use it.
+**Child vs Plugin:**
+A **child** is a personal project created locally via `create-child`.  
+A **plugin** is an official project installed from the registry via `install-plugin`.
 
 ---
 
@@ -90,27 +81,27 @@ A **plugin** is a child designed to be distributed publicly — packaged so othe
 │   ├── settings.json              # Claude Code settings
 │   ├── MEMORY.md                  # Agent memory index
 │   ├── skills/                    # Reusable agent behaviors
-│   └── templates/family-child/    # Template used by create-child skill
-├── data/persona/                  # User & AI persona files
+│   └── templates/                 # Scaffolding used by create-child skill
+│       ├── child/                 # Template for personal child projects
+│       └── plugin/                # Starting point for plugin developers
+├── data/
+│   ├── persona/                   # User & AI persona files
+│   ├── children_manifest.md       # What gets propagated to children
+│   └── children_registry.md       # List of all child projects and plugins
 └── docs/                          # Backlog and project documents
 ```
 
 ---
 
-## Managing Children
+## Skills
 
-Skills and rules live in the parent and flow to children via built-in skills.
-
-| Skill | Direction | Purpose |
-|-------|-----------|---------|
-| `create-child` | Parent → new child | Scaffold a new child project |
-| `sync-to-children` | Parent → children | Push updated skills or rules to children |
-| `sync-to-core` | Child → Parent | Promote a child-level change back to the parent |
-
-To create a child project, just ask the agent:
-```
-Create a new child project.
-```
+| Skill | Purpose |
+|-------|---------|
+| `create-child` | Scaffold a new personal child project |
+| `install-plugin` | Browse registry and install an official plugin |
+| `promote-to-plugin` | Promote a child to a distributable plugin |
+| `sync-to-children` | Push updated skills or rules to children |
+| `sync-to-core` | Promote a child-level change back to the parent |
 
 ---
 
