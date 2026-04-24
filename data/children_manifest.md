@@ -22,12 +22,10 @@ updated: {SETUP_DATE}
 `sync-to-children`은 **아래 표만** 읽어서 복사 대상을 결정한다.  
 표에 없는 파일은 복사하지 않는다.
 
-- `대상 타입`: `all` = child·plugin 모두 / `child` = 일반 자식만 / `plugin` = 플러그인만
-
-| ID | 종류 | 대상 타입 | 부모 소스 경로 | 자식 대상 경로 |
-|----|------|-----------|----------------|----------------|
-| `lets-commit-skill` | skill | `all` | `.claude/skills/lets-commit/SKILL.md` | `.claude/skills/lets-commit/SKILL.md` |
-| `complete-backlog-item-skill` | skill | `all` | `.claude/skills/complete-backlog-item/SKILL.md` | `.claude/skills/complete-backlog-item/SKILL.md` |
+| ID | 종류 | 부모 소스 경로 | 자식 대상 경로 |
+|----|------|----------------|----------------|
+| `lets-commit-skill` | skill | `.claude/skills/lets-commit/SKILL.md` | `.claude/skills/lets-commit/SKILL.md` |
+| `complete-backlog-item-skill` | skill | `.claude/skills/complete-backlog-item/SKILL.md` | `.claude/skills/complete-backlog-item/SKILL.md` |
 
 ---
 
@@ -57,7 +55,6 @@ updated: {SETUP_DATE}
 | 스킬 name | 경로 | 언제 쓰는지 |
 |-----------|------|-------------|
 | `create-child` | `.claude/skills/create-child/SKILL.md` | 새 자식 프로젝트 생성 |
-| `promote-to-plugin` | `.claude/skills/promote-to-plugin/SKILL.md` | 자식 → 플러그인 승격 |
 | `sync-to-children` | `.claude/skills/sync-to-children/SKILL.md` | 기존 자식에 스킬·문서 재동기화 |
 | `sync-to-core` | `.claude/skills/sync-to-core/SKILL.md` | 자식 변경을 부모로 역전파 |
 

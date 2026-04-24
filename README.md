@@ -55,15 +55,16 @@ The **parent** project at the center of your AI family system.
 ```
 {family-name}/
 ├── CLAUDE.md                      # Agent governance constitution
+├── AGENTS.md                      # Agent compatibility entrypoint
 ├── .claude/
 │   ├── settings.json              # Claude Code settings
-│   ├── MEMORY.md                  # Agent memory index
-│   ├── skills/                    # Reusable agent behaviors
-│   └── templates/
-│       ├── child/                 # Template for personal child projects
-│       └── plugin/                # Starting point for plugin developers
+│   └── skills/                    # Reusable agent behaviors
+├── .agents/
+│   └── skills/                    # Thin wrappers for broad agent compatibility
 ├── data/
 │   ├── persona/                   # User & AI persona files
+│   └── templates/
+│       └── child/                 # Template for child projects
 │   ├── children_manifest.md       # What gets propagated to children
 │   └── children_registry.md       # List of all child projects and plugins
 └── docs/                          # Backlog and project documents
@@ -75,9 +76,7 @@ The **parent** project at the center of your AI family system.
 
 | Skill | Purpose |
 |-------|---------|
-| `create-child` | Scaffold a new personal child project |
-| `install-plugin` | Browse registry and install an official plugin |
-| `promote-to-plugin` | Promote a child to a distributable plugin |
+| `create-child` | Scaffold a new child project |
 | `sync-to-children` | Push updated skills or rules to children |
 | `sync-to-core` | Promote a child-level change back to the parent |
 

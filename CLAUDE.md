@@ -36,8 +36,6 @@ version: 1
 - `lets-commit` → `.claude/skills/lets-commit/SKILL.md`
 - `complete-backlog-item` → `.claude/skills/complete-backlog-item/SKILL.md`
 - `create-child` → `.claude/skills/create-child/SKILL.md`
-- `install-plugin` → `.claude/skills/install-plugin/SKILL.md`
-- `promote-to-plugin` → `.claude/skills/promote-to-plugin/SKILL.md`
 - `sync-to-children` → `.claude/skills/sync-to-children/SKILL.md`
 - `sync-to-core` → `.claude/skills/sync-to-core/SKILL.md`
 

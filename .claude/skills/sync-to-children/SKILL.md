@@ -29,10 +29,7 @@ Do **not** propagate files not listed in the manifest.
 - Let the user select targets (all or specific children)
 
 ### 3. Copy changes to each target child
-- For each row in `자식 로컬 복사 매핑`: check the `대상 타입` column
-  - `all` → copy to both child and plugin projects
-  - `child` → copy to child-type projects only
-  - `plugin` → copy to plugin-type projects only
+- For each row in `자식 로컬 복사 매핑`: copy the source file to the child's target path
 - Copy the source file to the child's target path
 - Do not overwrite child-specific sections (backlog prefix, purpose, persona refs, etc.)
 
