@@ -18,26 +18,22 @@ updated: {SETUP_DATE}
 
 ## 부모 연동
 - **전파 목록(매니페스트)** — 자식으로 복사하지 않음. 항상 부모만 참조: `../../{username}/data/children_manifest.md`
-- 로컬 복사된 스킬(매니페스트 `자식 로컬 복사 매핑`):
-  - `lets-commit`
-  - `update-docs-from-conversation`
-  - `sync-to-core`
-  - `complete-backlog-item`
-  - `wiki-query`
-  - `wiki-ingest`
+- 로컬 복사된 스킬(매니페스트 `자식 로컬 복사 매핑` — 자식 자기 자신에만 작용하는 범용 스킬만):
+  - `lets-commit` → `.claude/skills/lets-commit/SKILL.md`
+  - `complete-backlog-item` → `.claude/skills/complete-backlog-item/SKILL.md`
+- 자식이 공용(배포된) 파일을 수정했다면, **부모에서 `sync-to-core`를 실행**해 승격한다 (자식에는 역방향 스킬을 두지 않음)
 - 부모 페르소나 참조:
   - `../../{username}/data/persona/`
   - `../../{username}/data/persona/update_rules.md`
 
 ### 부모 Wiki 사용
 
-- 공통 지식 위키는 `../../{username}/data/wiki/`를 단일 원천으로 사용한다.
-- 자식에서 투자·개념·공통 의사결정 질문을 받으면 로컬 복사된 `wiki-query` 스킬을 따른다.
-- 검색 보조는 부모 공용 스크립트를 호출한다:
-  `python3 ../../{username}/scripts/wiki.py search "<질문 키워드>" --root ../../{username} --limit 8`
-- wiki lint는 다음 명령으로 실행한다:
-  `python3 ../../{username}/scripts/wiki.py lint --root ../../{username}`
-- 자식에서 나온 재사용 가능한 분석은 `../../{username}/data/wiki/analysis/` 또는 관련 concept/entity에 filed-back한다.
+- 공통 지식 위키는 부모의 `data/wiki/`를 단일 원천으로 사용한다 (자식은 **읽기만** — ingest·lint 등 위키 쓰기는 부모에서만 한다).
+- **정식 경로 — `family-wiki` MCP** (등록돼 있으면 우선): `wiki_index()` → `wiki_search(query)` → `wiki_read(path)` 순으로 사용한다. 등록 방법: 부모 `mcp_servers/wiki/README.md`.
+- **fallback — 상대경로** (MCP 미등록 시):
+  - `../../{username}/data/wiki/index.md`를 먼저 읽고 관련 페이지를 따라간다
+  - 검색 보조: `python3 ../../{username}/scripts/wiki.py search "<질문 키워드>" --root ../../{username} --limit 8`
+- 자식에서 나온 재사용 가능한 분석은 부모 위키에 filed-back할 후보로 유저에게 제안한다 (반영은 부모에서).
 
 ## 유저 페르소나
 - `../../{username}/data/persona/profile.md`

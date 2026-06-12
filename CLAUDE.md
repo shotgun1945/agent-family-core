@@ -32,6 +32,11 @@ version: 1
 - **자식 레지스트리** — 등록된 자식 프로젝트 목록: `data/children_registry.md`
 - 자식 경로: `../{username}_children/`
 
+## 위키 (공유 지식)
+- 단일 원천: `data/wiki/` — 쓰기(ingest·lint)는 이 저장소에서만, 자식은 읽기만 한다
+- 검색·lint 도구: `scripts/wiki.py` (`search` / `lint`)
+- 자식에 노출: `family-wiki` MCP 서버 (read-only) — `mcp_servers/wiki/` (등록 방법은 그 안 `README.md`, 키 merge 계약은 `data/children_manifest.md`의 `## MCP 서버 등록`)
+
 ## 스킬
 - `lets-commit` → `.claude/skills/lets-commit/SKILL.md`
 - `complete-backlog-item` → `.claude/skills/complete-backlog-item/SKILL.md`
